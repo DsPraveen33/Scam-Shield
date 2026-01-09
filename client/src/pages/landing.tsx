@@ -9,7 +9,7 @@ export default function Landing() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
           <div className="flex items-center gap-2 text-primary font-bold text-xl font-display">
             <Shield className="h-6 w-6 fill-primary/20" />
-            <span>ScamGuard</span>
+            <span>FAKE JOBS DETECTOR</span>
           </div>
           <div className="flex items-center gap-4">
             <Button variant="ghost" onClick={() => window.location.href = "/api/login"}>Sign In</Button>
@@ -101,7 +101,7 @@ export default function Landing() {
 
       <footer className="bg-white border-t py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
-          <p className="text-sm text-muted-foreground">© 2024 ScamGuard AI. All rights reserved.</p>
+          <p className="text-sm text-muted-foreground">© 2026 FAKE JOBS DETECTOR. All rights reserved.</p>
           <div className="flex gap-6 text-sm font-medium text-muted-foreground">
             <a href="#" className="hover:text-primary">Privacy</a>
             <a href="#" className="hover:text-primary">Terms</a>
