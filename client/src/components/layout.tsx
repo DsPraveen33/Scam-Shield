@@ -10,10 +10,12 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   const { user, logout } = useAuth();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
+  const isAdmin = true; // In demo mode, show for all
+
   const navItems = [
     { href: "/", label: "Dashboard", icon: LayoutDashboard },
     { href: "/scan", label: "New Scan", icon: Search },
-    { href: "/admin", label: "Admin Panel", icon: Settings },
+    ...(isAdmin ? [{ href: "/admin", label: "Admin Panel", icon: Settings }] : []),
   ];
 
   return (

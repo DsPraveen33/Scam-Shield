@@ -26,22 +26,11 @@ export default function AdminPage() {
   const [newWord, setNewWord] = useState("");
   const [newCategory, setNewCategory] = useState("generic");
 
-  // Simple hardcoded admin check for demo purposes
-  // In production, use a role field in the database
-  const isAdmin = true; // user?.email === "admin@scamguard.com";
+  const isAdmin = true; // For demo purposes, allow access
 
-  if (!isAdmin) {
-    return (
-      <Layout>
-        <div className="flex flex-col items-center justify-center h-[60vh] text-center">
-          <Ban className="h-16 w-16 text-red-500 mb-4" />
-          <h1 className="text-2xl font-bold">Access Denied</h1>
-          <p className="text-muted-foreground">You do not have permission to view this page.</p>
-        </div>
-      </Layout>
-    );
-  }
-
+  return (
+    <Layout>
+      <div className="mb-8">
   const handleAddDomain = () => {
     if (newDomain && newReason) {
       addBlacklist({ domain: newDomain, reason: newReason });
