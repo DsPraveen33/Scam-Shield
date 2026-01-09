@@ -28,9 +28,6 @@ export default function AdminPage() {
 
   const isAdmin = true; // For demo purposes, allow access
 
-  return (
-    <Layout>
-      <div className="mb-8">
   const handleAddDomain = () => {
     if (newDomain && newReason) {
       addBlacklist({ domain: newDomain, reason: newReason });
