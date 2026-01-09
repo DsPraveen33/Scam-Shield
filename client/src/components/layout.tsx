@@ -24,7 +24,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       <div className="md:hidden flex items-center justify-between p-4 border-b bg-card">
         <div className="flex items-center gap-2 text-primary font-bold text-xl">
           <Shield className="h-6 w-6" />
-          <span>ScamGuard</span>
+          <span>FAKE JOBS DETECTOR</span>
         </div>
         <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
           {mobileMenuOpen ? <X /> : <Menu />}
@@ -42,7 +42,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               <Shield className="h-6 w-6" />
             </div>
             <div>
-              <h1 className="font-display font-bold text-xl leading-none">ScamGuard</h1>
+              <h1 className="font-display font-bold text-xl leading-none uppercase">Fake Jobs Detector</h1>
               <span className="text-xs text-muted-foreground">AI Fraud Detector</span>
             </div>
           </div>
