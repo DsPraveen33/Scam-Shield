@@ -6,17 +6,18 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
-import { Trash2, Plus, Ban, Type } from "lucide-react";
+import { Trash2, Plus, Ban, Type, Loader2 } from "lucide-react";
 import { useState } from "react";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { cn } from "@/lib/utils";
 
 export default function AdminPage() {
-  const { user } = useAuth();
-  const { data: blacklist } = useBlacklist();
+  const { user, isLoading: authLoading } = useAuth();
+  const { data: blacklist, isLoading: blacklistLoading } = useBlacklist();
   const { mutate: addBlacklist } = useCreateBlacklist();
   const { mutate: removeBlacklist } = useDeleteBlacklist();
   
-  const { data: keywords } = useKeywords();
+  const { data: keywords, isLoading: keywordsLoading } = useKeywords();
   const { mutate: addKeyword } = useCreateKeyword();
   const { mutate: removeKeyword } = useDeleteKeyword();
 
@@ -27,6 +28,7 @@ export default function AdminPage() {
   const [newCategory, setNewCategory] = useState("generic");
 
   const isAdmin = true; // For demo purposes, allow access
+  const isLoading = authLoading || blacklistLoading || keywordsLoading;
 
   const handleAddDomain = () => {
     if (newDomain && newReason) {
@@ -42,6 +44,16 @@ export default function AdminPage() {
       setNewWord("");
     }
   };
+
+  if (isLoading) {
+    return (
+      <Layout>
+        <div className="flex items-center justify-center min-h-[400px]">
+          <Loader2 className="h-8 w-8 animate-spin text-primary" />
+        </div>
+      </Layout>
+    );
+  }
 
   return (
     <Layout>
